@@ -1,3 +1,71 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": [
+    "simple-import-sort",
+    "check-file",
+    "unused-imports",
+    "no-only-tests"
+  ],
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "prettier",
+    "plugin:anti-trojan-source/recommended",
+    "plugin:@next/next/recommended"
+  ],
+  "ignorePatterns": [
+    "dist"
+  ],
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ],
+    "tsconfigRootDir": "."
+  },
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "max-classes-per-file": "off",
+    "no-use-before-define": "off",
+    "no-console": "warn",
+    "no-restricted-syntax": "off",
+    "no-await-in-loop": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "@typescript-eslint/no-throw-literal": "warn",
+    "@typescript-eslint/no-floating-promises": "error",
+    "no-void": [
+      "error",
+      {
+        "allowAsStatement": true
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": "error",
+    "no-restricted-properties": [
+      "error",
+      {
+        "property": "id",
+        "message": "Do not use ambiguous identifiers like `id`, use context identifiers like `userId` or `postId` instead."
+      }
+    ],
+    "no-only-tests/no-only-tests": "error",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "state"
+        ]
+        // Allow parameter reassignment for state in reducers
+      }
+    ]
+  }
 }
